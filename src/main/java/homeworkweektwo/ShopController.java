@@ -17,11 +17,11 @@ public class ShopController {
     private static final int UPPERBOUND = 300;
     private static final int LOWERBOUND = 50 - 1;
     private static final String CARTVALUE = "Cena produktów: ";
-    @Autowired
+    
     private final Shop shop;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
+    @Autowired
     public ShopController(Shop shop) {
         this.shop = shop;
     }
