@@ -1,5 +1,6 @@
-package homeworkweektwo;
+package homeworkweektwo.service;
 
+import homeworkweektwo.model.Product;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -8,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Profile("Plus")
-public class PlusShopService extends Addons implements Shop {
+@Profile("Starter")
+public class StarterShopService implements Shop {
 
     private List<Product> products;
 
-    public PlusShopService() {
+    public StarterShopService() {
         products = new ArrayList<>();
     }
 
@@ -25,12 +26,6 @@ public class PlusShopService extends Addons implements Shop {
 
     @Override
     public BigDecimal getCartValue() {
-        BigDecimal cartSum = getBigDecimal();
-        return cartSum
-                .add(cartSum.multiply(BigDecimal.valueOf(getVat())));
-    }
-
-    private BigDecimal getBigDecimal() {
         return products
                 .stream()
                 .map(Product::getPrice)

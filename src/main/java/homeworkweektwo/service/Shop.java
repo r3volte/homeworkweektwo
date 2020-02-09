@@ -1,4 +1,6 @@
-package homeworkweektwo;
+package homeworkweektwo.service;
+
+import homeworkweektwo.model.Product;
 
 import java.math.BigDecimal;
 import java.util.List;

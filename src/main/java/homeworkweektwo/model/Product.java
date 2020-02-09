@@ -1,4 +1,4 @@
-package homeworkweektwo;
+package homeworkweektwo.model;
 
 import java.math.BigDecimal;
 

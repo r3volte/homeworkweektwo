@@ -1,5 +1,7 @@
-package homeworkweektwo;
+package homeworkweektwo.controller;
 
+import homeworkweektwo.model.Product;
+import homeworkweektwo.service.Shop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,27 +19,22 @@ public class ShopController {
     private static final int UPPERBOUND = 300;
     private static final int LOWERBOUND = 50 - 1;
     private static final String CARTVALUE = "Cena produktów: ";
-    
+    @Autowired
     private final Shop shop;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
+
     public ShopController(Shop shop) {
         this.shop = shop;
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void get() {
-        Product orange = new Product("Orange", randomPrice());
-        Product tea = new Product("Tea", randomPrice());
-        Product bread = new Product("Bread", randomPrice());
-        Product milk = new Product("Milk", randomPrice());
-        Product banana = new Product("Banana", randomPrice());
-        shop.addProductToCart(orange);
-        shop.addProductToCart(tea);
-        shop.addProductToCart(bread);
-        shop.addProductToCart(milk);
-        shop.addProductToCart(banana);
+        shop.addProductToCart(new Product("Orange", randomPrice()));
+        shop.addProductToCart(new Product("Tea", randomPrice()));
+        shop.addProductToCart(new Product("Bread", randomPrice()));
+        shop.addProductToCart(new Product("Milk", randomPrice()));
+        shop.addProductToCart(new Product("Banana", randomPrice()));
         logger.info(CARTVALUE + shop.getCartValue().toString());
 
     }
